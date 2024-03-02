@@ -1,12 +1,13 @@
 package main.java.com.eventhub.model;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+
+import main.java.com.eventhub.util.FileManager;
 
 public class User implements IUser {
     private static String DATA_FILE = "users.data";
@@ -55,6 +56,10 @@ public class User implements IUser {
         this.password = password;
     }
 
+    public String toString() {
+        return String.format("%s,%s,%s,%s", name, email, city, password);
+    }
+
     public void saveUser() {
         User existingUser = getUserByEmail(email);
     
@@ -62,13 +67,10 @@ public class User implements IUser {
             System.out.println("Já existe um usuário com este email: " + email);
             return;
         }
+
+        String userData = this.toString();
     
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(DATA_FILE, true))) {
-            writer.write(name + "," + email + "," + city + "," + password);
-            writer.newLine();
-        } catch (IOException e) {
-            System.err.println("Erro ao salvar o usuário em arquivo: " + e.getMessage());
-        }
+        FileManager.saveData(DATA_FILE, userData);
     }
 
     public static User getUserByEmail(String userEmail) {
