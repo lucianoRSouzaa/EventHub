@@ -5,7 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import main.java.com.eventhub.util.FileManager;
 
@@ -71,6 +72,28 @@ public class User implements IUser {
         String userData = this.toString();
     
         FileManager.saveData(DATA_FILE, userData);
+    }
+
+    public static List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] userData = line.split(",");
+                String name = userData[0];
+                String email = userData[1];
+                String city = userData[2];
+                String password = userData[3];
+                User user = new User(name, email, city, password);
+                user.password = null;
+                userList.add(user);
+            }
+        } catch (IOException e) {
+            System.err.println("Erro ao ler o arquivo " + DATA_FILE +": " + e.getMessage());
+        }
+
+        return userList;
     }
 
     public static User getUserByEmail(String userEmail) {
