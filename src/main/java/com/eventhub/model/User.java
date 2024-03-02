@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class User {
+public class User implements IUser {
     private static String DATA_FILE = "users.data";
 
     private String name;
