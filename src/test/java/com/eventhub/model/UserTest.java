@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import main.java.com.eventhub.model.User;
 
@@ -52,6 +53,28 @@ public class UserTest {
         } catch (IOException e) {
             Assert.fail("Erro ao ler o arquivo users.data: " + e.getMessage());
         }
+    }
+
+    @Test
+    public void should_ListAllUsersSuccessfully() {
+        User user1 = new User("Luciano", "luciano@example.com", "São Paulo", "123456");
+        User user2 = new User("Maria", "maria@example.com", "Rio de Janeiro", "654321");
+
+        user1.saveUser();
+        user2.saveUser();
+
+        List<User> userList = User.getAllUsers();
+        Assert.assertEquals(2, userList.size());
+
+        Assert.assertEquals("Luciano", userList.get(0).getName());
+        Assert.assertEquals("luciano@example.com", userList.get(0).getEmail());
+        Assert.assertEquals("São Paulo", userList.get(0).getCity());
+        Assert.assertEquals(null, userList.get(0).getPassword());
+
+        Assert.assertEquals("Maria", userList.get(1).getName());
+        Assert.assertEquals("maria@example.com", userList.get(1).getEmail());
+        Assert.assertEquals("Rio de Janeiro", userList.get(1).getCity());
+        Assert.assertEquals(null, userList.get(1).getPassword());
     }
 
     @Test
