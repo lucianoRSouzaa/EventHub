@@ -36,6 +36,25 @@ public class UserTest {
     }
 
     @Test
+    public void should_SaveMultipleUsersSuccessfully() {
+        User user1 = new User("Luciano", "luciano@example.com", "São Paulo", "123456");
+        User user2 = new User("Maria", "maria@example.com", "Rio de Janeiro", "654321");
+        
+        user1.saveUser();
+        user2.saveUser();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("users.data"))) {
+            String line1 = reader.readLine();
+            String line2 = reader.readLine();
+
+            Assert.assertEquals(user1.getName() + "," + user1.getEmail() +  "," + user1.getCity() + "," + user1.getPassword(), line1);
+            Assert.assertEquals(user2.getName() + "," + user2.getEmail() +  "," + user2.getCity() + "," + user2.getPassword(), line2);
+        } catch (IOException e) {
+            Assert.fail("Erro ao ler o arquivo users.data: " + e.getMessage());
+        }
+    }
+
+    @Test
     public void should_GetUserByEmail_WithValidEmail() {
         
         User user = new User("Luciano", "luciano@example.com", "São Paulo", "123456");
