@@ -1,11 +1,14 @@
 package main.java.com.eventhub;
 
+import main.java.com.eventhub.controller.EventController;
+import main.java.com.eventhub.view.ListEvents;
 import main.java.com.eventhub.view.MainMenu;
 
-public class App {
-    
-
+public class App {    
     public static void main(String[] args) throws Exception {
+        EventController eventController = new EventController();
+        ListEvents listEvents = new ListEvents(eventController);
+
         while (true) {
             
             MainMenu.showMainMenu();
@@ -25,7 +28,7 @@ public class App {
                     // listUsers();
                     break;
                 case 5:
-                    // listEvents();
+                    listEvents.show();
                     break;
                 case 6:
                     System.out.println("Saindo...");
