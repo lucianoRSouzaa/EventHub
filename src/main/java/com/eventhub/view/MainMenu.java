@@ -1,11 +1,9 @@
 package main.java.com.eventhub.view;
 
-import java.util.Scanner;
+public class MainMenu extends AbstractView {
 
-public class MainMenu {
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static int Home() {
+    @Override
+    public void show() {
         System.out.println("Escolha uma opcao: ");
         System.out.println("1 - Registrar usuario");
         System.out.println("2 - Criar evento");
@@ -14,9 +12,13 @@ public class MainMenu {
         System.out.println("5 - Listar eventos");
         System.out.println("6 - Sair");
         System.out.print("\nSelecione: ");
-        
-        int option = scanner.nextInt();
+    }
 
-        return option;
+    public static int getUserOption() {
+        return scanner.nextInt();
+    }
+
+    public static void showMainMenu() {
+        new MainMenu().show();
     }
 }

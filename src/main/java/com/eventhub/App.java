@@ -4,10 +4,12 @@ import main.java.com.eventhub.view.MainMenu;
 
 public class App {
     
+
     public static void main(String[] args) throws Exception {
         while (true) {
             
-            int option = MainMenu.Home();
+            MainMenu.showMainMenu();
+            int option = MainMenu.getUserOption();
             
             switch (option) {
                 case 1:
