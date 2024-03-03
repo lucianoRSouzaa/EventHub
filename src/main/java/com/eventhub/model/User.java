@@ -25,6 +25,13 @@ public class User implements IUser {
         this.password = encryptPassword(password);
     }
 
+    private User(String name, String email, String city, String password, Boolean isGetUser) {
+        this.name = name;
+        this.email = email;
+        this.city = city;
+        this.password = password;
+    }
+
     public String getName() {
         return name;
     }
@@ -102,8 +109,7 @@ public class User implements IUser {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 4 && parts[1].equals(userEmail)) {
-                    User user = new User(parts[0], parts[1], parts[2], parts[3]);
-                    user.password = null;
+                    User user = new User(parts[0], parts[1], parts[2], parts[3], true);
                     return user;
                 }
             }
