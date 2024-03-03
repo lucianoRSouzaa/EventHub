@@ -5,6 +5,7 @@ import main.java.com.eventhub.view.ListEventsOccurring;
 import main.java.com.eventhub.view.ListNextEvents;
 import main.java.com.eventhub.view.ListOccurredEvents;
 import main.java.com.eventhub.view.MainMenu;
+import main.java.com.eventhub.view.NextEventsOptions;
 
 public class App {    
     public static void main(String[] args) throws Exception {
@@ -12,7 +13,7 @@ public class App {
         ListNextEvents listNextEvents = new ListNextEvents(eventController);
         ListOccurredEvents listOccurredEvents = new ListOccurredEvents(eventController);
         ListEventsOccurring listEventsOccurring = new ListEventsOccurring(eventController);
-
+        NextEventsOptions nextEventsOption = new NextEventsOptions(eventController);
 
         while (true) {
             
@@ -30,7 +31,9 @@ public class App {
                     // listUsers();
                     break;
                 case 4:
-                    listNextEvents.show();  
+                    listNextEvents.show();
+                    nextEventsOption.show();
+
                     break;
                 case 5:
                     listOccurredEvents.show();
