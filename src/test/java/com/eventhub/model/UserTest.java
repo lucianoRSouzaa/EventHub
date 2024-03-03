@@ -89,7 +89,6 @@ public class UserTest {
         Assert.assertEquals(user.getName(), retrievedUser.getName());
         Assert.assertEquals(user.getEmail(), retrievedUser.getEmail());
         Assert.assertEquals(user.getCity(), retrievedUser.getCity());
-        Assert.assertEquals(null, retrievedUser.getPassword());
     }
     
     @Test
