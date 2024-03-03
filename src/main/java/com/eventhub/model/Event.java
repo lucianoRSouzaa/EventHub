@@ -133,6 +133,22 @@ public class Event implements IEvent {
         return eventsByCity;
     }
 
+    public static List<Event> getEventByName(List<Event> events, String name) {
+        List<Event> eventsByName = new ArrayList<>();
+        
+        try{
+            for (Event event : events) {
+                if (event.getName().equalsIgnoreCase(name)) {
+                    eventsByName.add(event);
+                }
+            }
+        } catch(Exception e) {
+            System.out.println("Nenhum evento encontrado com o nome " + name);
+        }
+        
+        return eventsByName;
+    }
+
     public UUID getId() {
         return id;
     }
