@@ -22,13 +22,13 @@ public class App {
                     // createEvent();
                     break;
                 case 3:
-                    // attendEvent();
-                    break;
-                case 4:
                     // listUsers();
                     break;
+                case 4:
+                    listEvents.show();  
+                    break;
                 case 5:
-                    listEvents.show();
+                    // listOccurredEvents()
                     break;
                 case 6:
                     System.out.println("Saindo...");
