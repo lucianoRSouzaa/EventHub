@@ -1,13 +1,18 @@
 package main.java.com.eventhub;
 
 import main.java.com.eventhub.controller.EventController;
-import main.java.com.eventhub.view.ListEvents;
+import main.java.com.eventhub.view.ListEventsOccurring;
+import main.java.com.eventhub.view.ListNextEvents;
+import main.java.com.eventhub.view.ListOccurredEvents;
 import main.java.com.eventhub.view.MainMenu;
 
 public class App {    
     public static void main(String[] args) throws Exception {
         EventController eventController = new EventController();
-        ListEvents listEvents = new ListEvents(eventController);
+        ListNextEvents listNextEvents = new ListNextEvents(eventController);
+        ListOccurredEvents listOccurredEvents = new ListOccurredEvents(eventController);
+        ListEventsOccurring listEventsOccurring = new ListEventsOccurring(eventController);
+
 
         while (true) {
             
@@ -25,12 +30,15 @@ public class App {
                     // listUsers();
                     break;
                 case 4:
-                    listEvents.show();  
+                    listNextEvents.show();  
                     break;
                 case 5:
-                    // listOccurredEvents()
+                    listOccurredEvents.show();
                     break;
                 case 6:
+                    listEventsOccurring.show();
+                    break;
+                case 7:
                     System.out.println("Saindo...");
                     return;
                 default:
