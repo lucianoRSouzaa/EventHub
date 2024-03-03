@@ -5,28 +5,28 @@ import java.util.List;
 import main.java.com.eventhub.controller.EventController;
 import main.java.com.eventhub.model.Event;
 
-public class ListEvents extends AbstractView {
+public class ListNextEvents extends AbstractView {
     private final EventController eventController;
 
-    public ListEvents(EventController eventController) {
+    public ListNextEvents(EventController eventController) {
         this.eventController = eventController;
     }
 
     @Override
     public void show() {
-        List<Event> events = eventController.getEvents();
+        List<Event> events = eventController.getNextEvents();
         if (events.isEmpty()) {
-            System.out.println("Nenhum evento criado.");
+            System.out.println("\nNenhum evento criado.\n");
         } else {
-            System.out.println("Eventos criados:");
+            System.out.println("\n" + events.size() + " eventos criados:");
             for (Event event : events) {
-                System.out.println("\n_______________________________________________________________________________________________________\n");
+                System.out.println("_______________________________________________________________________________________________________\n");
                 System.out.println("Nome: " + event.getName());
                 System.out.println("Descrição: " + event.getDescription());
                 System.out.println("Cidade: " + event.getCity());
                 System.out.println("Endereço: " + event.getAddress());
                 System.out.println("Categoria: " + event.getCategory());
-                System.out.println("Começa em: " + event.getStartTime() + " e termina em: " + event.getEndTime());
+                System.out.println("Começa em: " + event.getStartTime() + " e termina em: " + event.getEndTime() + "\n");
             }
         }
     }
