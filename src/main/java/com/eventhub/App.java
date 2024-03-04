@@ -49,6 +49,9 @@ public class App {
                     listEventsOccurring.show();
                     break;
                 case 8:
+                    // listUserEvents.show();
+                    break;
+                case 9:
                     System.out.println("Saindo...");
                     return;
                 default:
