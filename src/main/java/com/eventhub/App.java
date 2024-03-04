@@ -3,6 +3,7 @@ package main.java.com.eventhub;
 import main.java.com.eventhub.controller.EventController;
 import main.java.com.eventhub.view.ListEventsOccurring;
 import main.java.com.eventhub.view.ListNextEvents;
+import main.java.com.eventhub.view.ListNextEventsOfCity;
 import main.java.com.eventhub.view.ListOccurredEvents;
 import main.java.com.eventhub.view.MainMenu;
 import main.java.com.eventhub.view.NextEventsOptions;
@@ -14,6 +15,7 @@ public class App {
         ListOccurredEvents listOccurredEvents = new ListOccurredEvents(eventController);
         ListEventsOccurring listEventsOccurring = new ListEventsOccurring(eventController);
         NextEventsOptions nextEventsOption = new NextEventsOptions(eventController);
+        ListNextEventsOfCity listNextEventsOfCity = new ListNextEventsOfCity(eventController);
 
         while (true) {
             
@@ -36,7 +38,8 @@ public class App {
 
                     break;
                 case 5:
-                    // listNextEventsOfCity.show();
+                    listNextEventsOfCity.show();
+                    nextEventsOption.show();
 
                     break;
                 case 6:
