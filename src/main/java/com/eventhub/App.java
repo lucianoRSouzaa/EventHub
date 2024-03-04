@@ -9,6 +9,7 @@ import main.java.com.eventhub.view.ListUserEvents;
 import main.java.com.eventhub.view.MainMenu;
 import main.java.com.eventhub.view.NextEventsOptions;
 import main.java.com.eventhub.view.NextUserEventsOption;
+import main.java.com.eventhub.view.RegisterUser;
 
 public class App {    
     public static void main(String[] args) throws Exception {
@@ -20,6 +21,7 @@ public class App {
         ListNextEventsOfCity listNextEventsOfCity = new ListNextEventsOfCity(eventController);
         ListUserEvents listUserEvents = new ListUserEvents(eventController);
         NextUserEventsOption nextUserEventsOption = new NextUserEventsOption(eventController);
+        RegisterUser registerUser = new RegisterUser();
 
         while (true) {
             
@@ -28,7 +30,7 @@ public class App {
             
             switch (option) {
                 case 1:
-                    // registerUser();
+                    registerUser.show();
                     break;
                 case 2:
                     // createEvent();
