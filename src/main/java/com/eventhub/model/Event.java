@@ -149,6 +149,22 @@ public class Event implements IEvent {
         return eventsByName;
     }
 
+    public static List<Event> getEventById(List<Event> events, String id) {
+        List<Event> eventsByName = new ArrayList<>();
+        
+        try{
+            for (Event event : events) {
+                if (event.getId().toString().equalsIgnoreCase(id)) {
+                    eventsByName.add(event);
+                }
+            }
+        } catch(Exception e) {
+            System.out.println("Nenhum evento encontrado");
+        }
+        
+        return eventsByName;
+    }
+
     public UUID getId() {
         return id;
     }
