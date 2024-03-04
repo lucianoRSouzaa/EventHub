@@ -5,8 +5,10 @@ import main.java.com.eventhub.view.ListEventsOccurring;
 import main.java.com.eventhub.view.ListNextEvents;
 import main.java.com.eventhub.view.ListNextEventsOfCity;
 import main.java.com.eventhub.view.ListOccurredEvents;
+import main.java.com.eventhub.view.ListUserEvents;
 import main.java.com.eventhub.view.MainMenu;
 import main.java.com.eventhub.view.NextEventsOptions;
+import main.java.com.eventhub.view.NextUserEventsOption;
 
 public class App {    
     public static void main(String[] args) throws Exception {
@@ -16,6 +18,8 @@ public class App {
         ListEventsOccurring listEventsOccurring = new ListEventsOccurring(eventController);
         NextEventsOptions nextEventsOption = new NextEventsOptions(eventController);
         ListNextEventsOfCity listNextEventsOfCity = new ListNextEventsOfCity(eventController);
+        ListUserEvents listUserEvents = new ListUserEvents(eventController);
+        NextUserEventsOption nextUserEventsOption = new NextUserEventsOption(eventController);
 
         while (true) {
             
@@ -49,7 +53,9 @@ public class App {
                     listEventsOccurring.show();
                     break;
                 case 8:
-                    // listUserEvents.show();
+                    listUserEvents.show();
+                    nextUserEventsOption.show();
+
                     break;
                 case 9:
                     System.out.println("Saindo...");
