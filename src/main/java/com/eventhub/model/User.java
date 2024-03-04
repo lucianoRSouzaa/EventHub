@@ -72,13 +72,15 @@ public class User implements IUser {
         User existingUser = getUserByEmail(email);
     
         if (existingUser != null) {
-            System.out.println("Já existe um usuário com este email: " + email);
+            System.out.println("\nJá existe um usuário com este email: " + email + "\n");
             return;
         }
 
         String userData = this.toString();
     
         FileManager.saveData(DATA_FILE, userData);
+
+        System.out.println("\nUsuário cadastrado com sucesso!\n");
     }
 
     public static List<User> getAllUsers() {
