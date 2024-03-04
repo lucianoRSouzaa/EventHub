@@ -23,4 +23,13 @@ public class EventController implements IEventController {
         List<Event> nextEvents = getNextEvents();
         return Event.listEventsByCity(nextEvents, city);
     }
+
+    public Event getEventById(String eventId) {
+        return Event.getEventById(events, eventId).getFirst();
+    }
+
+    public List<Event> getEventByName(String eventName) {
+        return Event.getEventByName(events, eventName);
+    }
+    
 }
