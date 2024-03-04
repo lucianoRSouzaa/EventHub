@@ -42,9 +42,17 @@ public class UserEvent implements IUserEvent {
     }
 
     public void saveUserEvent() {
+        List<String> existingEventIds = getEventIdsForUser(userEmail);
+        if (existingEventIds.contains(eventId)) {
+            System.out.println("Você já está registrado para este evento.");
+            return;
+        }
+
         String userEventData = serialize();
 
         FileManager.saveData(USER_EVENTS_FILE, userEventData);
+
+        System.out.println("\nParticipação confirmada com sucesso!");
     }
 
     public static List<String> getEventIdsForUser(String userEmail) {
