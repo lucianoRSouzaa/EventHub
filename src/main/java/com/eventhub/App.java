@@ -36,12 +36,16 @@ public class App {
 
                     break;
                 case 5:
-                    listOccurredEvents.show();
+                    // listNextEventsOfCity.show();
+
                     break;
                 case 6:
-                    listEventsOccurring.show();
+                    listOccurredEvents.show();
                     break;
                 case 7:
+                    listEventsOccurring.show();
+                    break;
+                case 8:
                     System.out.println("Saindo...");
                     return;
                 default:
