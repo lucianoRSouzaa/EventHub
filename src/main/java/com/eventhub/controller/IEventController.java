@@ -8,4 +8,5 @@ public interface IEventController {
     List<Event> getNextEvents();
     List<Event> getOccurredEvents();
     List<Event> getEventsOccurring();
+    List<Event> getNextEventsOfUserCity(String city);
 }

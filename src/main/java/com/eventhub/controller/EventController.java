@@ -18,4 +18,9 @@ public class EventController implements IEventController {
     public List<Event> getEventsOccurring() {
         return Event.listOngoingEvents(events);
     }
+
+    public List<Event> getNextEventsOfUserCity(String city) {
+        List<Event> nextEvents = getNextEvents();
+        return Event.listEventsByCity(nextEvents, city);
+    }
 }
