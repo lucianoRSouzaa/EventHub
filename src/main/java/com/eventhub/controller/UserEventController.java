@@ -20,13 +20,13 @@ public class UserEventController {
         this.eventName = eventName;
     }
 
-    private boolean CheckUser() {
+    public static boolean CheckUser(String userEmail, String userPassword) {
         User user = User.getUserByEmail(userEmail);
         return user.checkPassword(userPassword);
     }
 
     public void attendEvent() {
-        boolean isUserChecked = CheckUser();
+        boolean isUserChecked = UserEventController.CheckUser(userEmail, userPassword);
         if(isUserChecked){
             List<Event> events = Event.getEventByName(this.events, eventName);
             if(events.isEmpty()){
@@ -35,7 +35,6 @@ public class UserEventController {
                 Event event = events.getFirst();
                 UserEvent userEvent = new UserEvent(userEmail, event.getId().toString());
                 userEvent.saveUserEvent();
-                System.out.println("\nParticipação confirmada com sucesso!");
             }
 
         } else{
