@@ -43,4 +43,29 @@ public class UserEventController {
         }
 
     }
+
+    public void cancelUserEvent(){
+        boolean isUserChecked = UserEventController.CheckUser(userEmail, userPassword);
+
+        if(isUserChecked){
+            List<Event> events = Event.getEventByName(this.events, eventName);
+            if(events.isEmpty()){
+                System.out.println("\nNenhum envento encontrado com o nome: " + eventName + "\n");
+            } else {
+                Event event = events.getFirst();
+                UserEvent.cancelUserEvent(userEmail, event.getId().toString());
+
+                System.out.println("\nParticipação cancelada com sucesso!\n");
+            }
+
+        } else{
+
+            System.out.println("\nEmail ou senha incorretos!\n");
+        }
+        
+    }
+
+    public static List<String> getEventIdsForUser(String userEmail) {
+        return UserEvent.getEventIdsForUser(userEmail);
+    }
 }
