@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -36,7 +37,11 @@ public class Event implements IEvent {
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
         this.description = description;
-        this.createdAt = LocalDateTime.now();
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+        String formattedDateTime = now.format(formatter);
+        this.createdAt = StringToLocalDateTime.parse(formattedDateTime);
     }
 
     private Event(UUID id, String name, String city, String address, EventCategory category, LocalDateTime startDateTime, LocalDateTime endDateTime, String description, LocalDateTime createdAt) {

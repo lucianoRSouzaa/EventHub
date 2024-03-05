@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class StringToLocalDateTime {
      public static LocalDateTime parse(String time) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSS");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
         
         LocalDateTime localDateTime = LocalDateTime.parse(time, formatter);
 
