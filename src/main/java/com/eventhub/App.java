@@ -7,6 +7,7 @@ import main.java.com.eventhub.view.ListNextEvents;
 import main.java.com.eventhub.view.ListNextEventsOfCity;
 import main.java.com.eventhub.view.ListOccurredEvents;
 import main.java.com.eventhub.view.ListUserEvents;
+import main.java.com.eventhub.view.ListUsers;
 import main.java.com.eventhub.view.MainMenu;
 import main.java.com.eventhub.view.NextEventsOptions;
 import main.java.com.eventhub.view.NextUserEventsOption;
@@ -24,7 +25,7 @@ public class App {
         NextUserEventsOption nextUserEventsOption = new NextUserEventsOption(eventController);
         CreateEvent createEvent = new CreateEvent(eventController);
         RegisterUser registerUser = new RegisterUser();
-        // ListUsers listUsers = new ListUsers()
+        ListUsers listUsers = new ListUsers();
         
 
         while (true) {
@@ -40,7 +41,7 @@ public class App {
                     createEvent.show();
                     break;
                 case 3:
-                    // listUsers.show();
+                    listUsers.show();
                     break;
                 case 4:
                     listNextEvents.show();
